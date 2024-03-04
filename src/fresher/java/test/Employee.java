@@ -55,7 +55,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee : "+ name +"\n"+"ID : " + id + "\n"+"Linh vuc : "+ 
+		return "Employee name : "+ name +"\n"+"ID : " + id + "\n"+"Linh vuc : "+ 
 		field +"\n"+"Chuc vu : "+ position+"\n"+"Luong thang : "+"\n"+ "Ma phong ban : "+ departmentID;
 	
 	}
