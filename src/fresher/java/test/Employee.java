@@ -84,6 +84,7 @@ public class Employee {
 	
 	public static Employee createEmployeeID(){
 		
+		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println(" Nhap Ten Nv : ");
@@ -101,9 +102,8 @@ public class Employee {
 		System.out.println("Nhap Luong Thang");
 		double salary = sc.nextDouble();
 		
+		Map<String,String > dsEmpID = new HashMap<>();
 
-		
-		
 		String soID = null;
 		for (int i = 0; i < 5; i++) {
 			String left = "EM";
@@ -111,10 +111,12 @@ public class Employee {
 			int right = rd.ints(10000,99999).findFirst().getAsInt();
 			soID = left+right;
 		}
-		String emp = name+soID;
+		String empID = name+" : "+soID;
+		System.out.println(empID);
+		dsEmpID.put(name, empID);
 		
 		
-		Map<Integer,String > dsEmpID = new HashMap<>();
+		
 	
 		return new Employee(soID, position,name,field,position,salary,"dsadsa");
 
