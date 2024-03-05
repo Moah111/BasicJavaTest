@@ -8,67 +8,49 @@ public class Department {
 	private  int departmentID;
 	private String name;
 	private String domain;
+
 	
-	
-	
-	public int getDepartmentID() {
-		return departmentID;
-	}
-
-	public void setDepartmentID(int departmentID) {
-		this.departmentID = departmentID;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDomain() {
-		return domain;
-	}
-
-	public void setDomain(String domain) {
-		this.domain = domain;
-	}
-
-	public void addDepartment(){
-		Scanner sc = new Scanner(System.in);
-		int departmentID = sc.nextInt();
-		String name = sc.next();
-		String domain = sc.nextLine();
-		this.name = name;
-		this.domain = domain;
-		this.departmentID = departmentID;
+	public static void addDepartment(){
 		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap ID Phong Ban : ");
+		int departmentID = sc.nextInt();
+		System.out.println("nhap Ten Phong Ban : ");
+		String name = sc.next();
+		System.out.println("Nhap domain : ");
+		String domain = sc.nextLine();
 	}
+	
 	
 	public static void menu(){
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Lua Chon Tinh Nang...");
-		int chon = sc.nextInt();	
-		
-			switch(chon){
-			
-			case 1:
-				System.out.println("Them Bo Phan Moi : ");break;
-			case 2:
-				System.out.println("Tim Kiem Phong ban : ");break;
-			case 3:
-				System.out.println("Them Nhan Vien Moi : ");break;
-			case 4:
-				System.out.println("Them Nhan Vien Vao Bo Phan Moi : ");break;
-			case 5:
-				System.out.println("Danh Sach Nhan Vien Theo Phong Ban : ");break;
-			}	
+		System.out.println("Them Bo Phan Moi : ");
+		System.out.println("Tim Kiem Phong ban : ");
 	}
+	
+	public static void  searchDE(){
+		 
+	}
+	
 	public static void main(String[] args){
 		Employee emp = new Employee();
-//		System.out.println(emp.toString());
-		menu();
-		}
+		addDepartment();
+		int n ;
+		int chon;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Chon Tinh Nang : ");
+		n = sc.nextInt();
+		do{
+			menu();
+			chon = sc.nextInt();
+			switch(chon){
+			case 1: addDepartment();break;
+			case 2: System.out.println("Dang Cap Nhat");
+			}
+			
+		}while(chon!=0);
+			
+	}	
+				
+	
 }
 
