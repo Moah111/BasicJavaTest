@@ -36,6 +36,9 @@ public class Department {
 		this.deID = deID;
 		this.domain = domain;
 	}
+	public static void main(String[] args) {
+		DeDomain.getDomain();
+	}
 	
 	
 	

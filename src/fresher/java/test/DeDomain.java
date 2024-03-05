@@ -1,11 +1,13 @@
 package fresher.java.test;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class DeDomain {
 	public static void getDomain(){
-		String search;
+		
 		Map<String,String> dsDomain = new HashMap<>();
 		dsDomain.put("FIN", "Financial");
 		dsDomain.put("MAR", "Marketing");
@@ -15,9 +17,12 @@ public class DeDomain {
 		dsDomain.put("TCD", "Traning Capability Department");
 		dsDomain.put("TOD", "Traning Operation Department");
 		
-		for (int i = 0; i < dsDomain.size(); i++) {
-			String search = dsDomain.get(i);
-			
+		Set<String> keySet = dsDomain.keySet();
+		Iterator<String> iterator = keySet.iterator();
+		String key  ;
+		while(iterator.next() != null){
+			key = iterator.next();
+			System.out.println(dsDomain.get(key));
 		}
 	}
 	
