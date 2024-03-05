@@ -5,13 +5,50 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Department {
-	private String departmentID;
+	private  int departmentID;
 	private String name;
 	private String domain;
 	
+	
+	
+	public int getDepartmentID() {
+		return departmentID;
+	}
+
+	public void setDepartmentID(int departmentID) {
+		this.departmentID = departmentID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDomain() {
+		return domain;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+
+	public void addDepartment(){
+		Scanner sc = new Scanner(System.in);
+		int departmentID = sc.nextInt();
+		String name = sc.next();
+		String domain = sc.nextLine();
+		this.name = name;
+		this.domain = domain;
+		this.departmentID = departmentID;
+		
+	}
+	
 	public static void menu(){
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Lua Chon Hanh Dong...");
+		System.out.println("Lua Chon Tinh Nang...");
 		int chon = sc.nextInt();	
 		
 			switch(chon){
@@ -30,7 +67,7 @@ public class Department {
 	}
 	public static void main(String[] args){
 		Employee emp = new Employee();
-		emp.toString();
+//		System.out.println(emp.toString());
 		menu();
 		}
 }
