@@ -1,24 +1,27 @@
 package fresher.java.test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
 public class Employee {
-	private int id;//ma so
+	private String id;//ma so
 	private String title;//chuc danh
 	private String name;//ten 
 	private String field;//linh vuc
 	private String position;//chuc vu
 	private double salary;//luong
 	private String departmentID;//ma bo phan
-	public int getId() {
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -69,7 +72,7 @@ public class Employee {
 	public Employee(){
 		
 	}
-	public Employee(int id, String title,String name,String position,double salary,String departmentID){//thieu linh vuc
+	public Employee(String id, String title,String name,String field,String position,double salary,String departmentID){
 		this.name = name;
 		this.field = field;
 		this.id = id;
@@ -79,25 +82,47 @@ public class Employee {
 		this.departmentID = departmentID;
 	}
 	
-	public static void createEmployeeID(){
+	public static Employee createEmployeeID(){
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println(" Nhap Ten Nv : ");
+		String name = sc.nextLine();
+		
+		
+		System.out.println("nhap Linh vuc");
+		String field = sc.nextLine();
+		
+		
+		System.out.println("Nhap Chuc Vu");
+		String position = sc.nextLine();
+		
+		
+		System.out.println("Nhap Luong Thang");
+		double salary = sc.nextDouble();
+		
+
+		
+		
 		String soID = null;
 		for (int i = 0; i < 5; i++) {
 			String left = "EM";
-			Set dsRight = new HashSet<>();
 			Random rd = new Random();
-			int right = rd.ints(0,9).findFirst().getAsInt();
-			dsRight.add(right);
+			int right = rd.ints(10000,99999).findFirst().getAsInt();
 			soID = left+right;
-			System.out.println(dsRight.get(0));
 		}
-	System.out.println(soID);
+		String emp = name+soID;
 		
 		
-		Set<String> dsEmpID = new HashSet<>();
-		Scanner sc = new Scanner(System.in);
-		
+		Map<Integer,String > dsEmpID = new HashMap<>();
+	
+		return new Employee(soID, position,name,field,position,salary,"dsadsa");
+
+	
 		
 	}
+
+	
 	public static void main(String[] args) {
 		createEmployeeID();
 	}
