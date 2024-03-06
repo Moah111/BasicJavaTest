@@ -13,7 +13,7 @@ public class Employee {
 	private String id;//ma so
 	private String title;//chuc danh
 	private String name;//ten 
-	private List<Domain> field;//linh vuc
+	private String field;//linh vuc
 	private String position;//chuc vu
 	private double salary;//luong
 	private String departmentID;//ma bo phan
@@ -36,10 +36,10 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Domain> getField() {
+	public String getField() {
 		return field;
 	}
-	public void setField(List<Domain> field) {
+	public void setField(String field) {
 		this.field = field;
 	}
 	public String getPosition() {
@@ -64,14 +64,14 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee name : "+ name +"\n"+"ID : " + id + "\n"+"Linh vuc : "+ 
-				Domain.createDomain() +"\n"+"Chuc vu : "+ position+"\n"+"Luong thang : " + salary +"\n"+ "Ma phong ban : "+ departmentID;
+				field +"\n"+"Chuc vu : "+ position+"\n"+"Luong thang : " + salary +"\n"+ "Ma phong ban : "+ departmentID;
 	}
 	
 	public Employee(){
 		
 	}
 	
-	public Employee(String id, String title,String name,List<Domain> field,String position,double salary,String departmentID){
+	public Employee(String id, String title,String name,String field,String position,double salary,String departmentID){
 		this.name = name;
 		this.field = field;
 		this.id = id;
@@ -94,7 +94,7 @@ public class Employee {
 		
 		System.out.println("nhap Linh vuc");
 //		String field = sc.nextLine();
-		dom.createDomain();
+		String domainName = dom.searchDomain();
 		
 		
 		System.out.println("Nhap Chuc Vu");
@@ -117,10 +117,10 @@ public class Employee {
 		System.out.println(empID);
 		dsEmpID.put(name, empID);
 		System.out.println(dsEmpID);
-		System.out.println(new Employee(soID, position,name,dom.createDomain(),position,salary,dep.getDeID()));
 		
 		
-		return  new Employee(soID, position,name,dom.createDomain(),position,salary,dep.getDeID());
+		
+		return  new Employee(soID, position,name,domainName,position,salary,dep.getDeID());
 	
 	}
 

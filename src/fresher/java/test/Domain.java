@@ -34,7 +34,7 @@ public class Domain {
 		this.key = key;
 		this.field = field;
 	}
-	public static List<Domain> createDomain(){
+	public static String searchDomain(){
 		List<Domain> dsDomain = new ArrayList<>();
 		
 		Domain domain1 = new Domain("FIN","Financial");
@@ -60,16 +60,14 @@ public class Domain {
 		for (int i = 0; i < dsDomain.size(); i++) {
 			if(input.equals(dsDomain.get(i).key)){
 				x = dsDomain.get(i).field;
+				break;
 			}
 		}
 		System.out.println(x);
 		
-		return createDomain();
+		return x;
 		
 	}
-	public static void main(String[] args) {
-		createDomain();
-		
-	}
+	
 
 }

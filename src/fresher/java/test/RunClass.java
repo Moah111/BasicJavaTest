@@ -6,8 +6,9 @@ import java.io.IOException;
 
 public class RunClass {
 	public static void main(String[] args) {
-//		Employee.createEmployeeID();
-		Domain.createDomain();
+		Employee.createEmployeeID();
+//		Domain.createDomain();
+		Department.createDeID();
 		
 	}
 
