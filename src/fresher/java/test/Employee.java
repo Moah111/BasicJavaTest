@@ -13,7 +13,7 @@ public class Employee {
 	private String id;//ma so
 	private String title;//chuc danh
 	private String name;//ten 
-	private DeDomain field;//linh vuc
+	private List<Domain> field;//linh vuc
 	private String position;//chuc vu
 	private double salary;//luong
 	private String departmentID;//ma bo phan
@@ -36,10 +36,10 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public DeDomain getField() {
+	public List<Domain> getField() {
 		return field;
 	}
-	public void setField(DeDomain field) {
+	public void setField(List<Domain> field) {
 		this.field = field;
 	}
 	public String getPosition() {
@@ -60,19 +60,18 @@ public class Employee {
 	public void setDepartmentID(String departmentID) {
 		this.departmentID = departmentID;
 	}
-	
-	
 
 	@Override
 	public String toString() {
 		return "Employee name : "+ name +"\n"+"ID : " + id + "\n"+"Linh vuc : "+ 
-		field +"\n"+"Chuc vu : "+ position+"\n"+"Luong thang : " + salary +"\n"+ "Ma phong ban : "+ departmentID;
-	
+				Domain.createDomain() +"\n"+"Chuc vu : "+ position+"\n"+"Luong thang : " + salary +"\n"+ "Ma phong ban : "+ departmentID;
 	}
+	
 	public Employee(){
 		
 	}
-	public Employee(String id, String title,String name,DeDomain field,String position,double salary,String departmentID){
+	
+	public Employee(String id, String title,String name,List<Domain> field,String position,double salary,String departmentID){
 		this.name = name;
 		this.field = field;
 		this.id = id;
@@ -85,7 +84,7 @@ public class Employee {
 	public static Employee createEmployeeID(){
 		
 		Department dep = new Department();
-		DeDomain ded = new DeDomain();
+		Domain dom = new Domain();
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -95,13 +94,13 @@ public class Employee {
 		
 		System.out.println("nhap Linh vuc");
 //		String field = sc.nextLine();
-		DeDomain field = ded.getDomain() ;
+		dom.createDomain();
 		
 		
 		System.out.println("Nhap Chuc Vu");
 		String position = sc.nextLine();
 		
-		
+
 		System.out.println("Nhap Luong Thang");
 		double salary = sc.nextDouble();
 		
@@ -118,18 +117,11 @@ public class Employee {
 		System.out.println(empID);
 		dsEmpID.put(name, empID);
 		System.out.println(dsEmpID);
-		System.out.println(new Employee(soID, position,name,field,position,salary,dep.getDeID()));
+		System.out.println(new Employee(soID, position,name,dom.createDomain(),position,salary,dep.getDeID()));
 		
 		
-		return new Employee();
-		
-
+		return  new Employee(soID, position,name,dom.createDomain(),position,salary,dep.getDeID());
 	
-		
 	}
 
-	
-
-	
-	
 }

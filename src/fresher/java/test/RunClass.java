@@ -5,9 +5,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class RunClass {
-	public static void main(String[] args) throws Exception{
-		Employee.createEmployeeID();
-		
+	public static void main(String[] args) {
+//		Employee.createEmployeeID();
+		Domain.createDomain();
 		
 	}
 
