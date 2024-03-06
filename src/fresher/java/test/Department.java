@@ -1,5 +1,8 @@
 package fresher.java.test;
 
+import java.util.Random;
+import java.util.Scanner;
+
 
 public class Department {
 	private String name;
@@ -36,8 +39,23 @@ public class Department {
 		this.deID = deID;
 		this.domain = domain;
 	}
+	
+	public static Department createDeID(){
+		
+		Scanner sc = new Scanner(System.in);
+		String deID = null;
+		for (int i = 0; i < 5; i++) {
+			String left = "DE";
+			Random rd = new Random();
+			int right = rd.ints(10000,99999).findFirst().getAsInt();
+			deID = left+right;
+		}
+		System.out.println(deID);
+		return null;
+		
+	}
 	public static void main(String[] args) {
-		DeDomain.getDomain();
+		createDeID();
 		
 	}
 	

@@ -13,7 +13,7 @@ public class Employee {
 	private String id;//ma so
 	private String title;//chuc danh
 	private String name;//ten 
-	private String field;//linh vuc
+	private DeDomain field;//linh vuc
 	private String position;//chuc vu
 	private double salary;//luong
 	private String departmentID;//ma bo phan
@@ -36,10 +36,10 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getField() {
+	public DeDomain getField() {
 		return field;
 	}
-	public void setField(String field) {
+	public void setField(DeDomain field) {
 		this.field = field;
 	}
 	public String getPosition() {
@@ -66,13 +66,13 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee name : "+ name +"\n"+"ID : " + id + "\n"+"Linh vuc : "+ 
-		field +"\n"+"Chuc vu : "+ position+"\n"+"Luong thang : "+"\n"+ "Ma phong ban : "+ departmentID;
+		field +"\n"+"Chuc vu : "+ position+"\n"+"Luong thang : " + salary +"\n"+ "Ma phong ban : "+ departmentID;
 	
 	}
 	public Employee(){
 		
 	}
-	public Employee(String id, String title,String name,String field,String position,double salary,String departmentID){
+	public Employee(String id, String title,String name,DeDomain field,String position,double salary,String departmentID){
 		this.name = name;
 		this.field = field;
 		this.id = id;
@@ -84,6 +84,8 @@ public class Employee {
 	
 	public static Employee createEmployeeID(){
 		
+		Department dep = new Department();
+		DeDomain ded = new DeDomain();
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -92,7 +94,8 @@ public class Employee {
 		
 		
 		System.out.println("nhap Linh vuc");
-		String field = sc.nextLine();
+//		String field = sc.nextLine();
+		DeDomain field = ded.getDomain() ;
 		
 		
 		System.out.println("Nhap Chuc Vu");
@@ -103,7 +106,7 @@ public class Employee {
 		double salary = sc.nextDouble();
 		
 		Map<String,String > dsEmpID = new HashMap<>();
-
+		
 		String soID = null;
 		for (int i = 0; i < 5; i++) {
 			String left = "EM";
@@ -114,20 +117,19 @@ public class Employee {
 		String empID = name+" : "+soID;
 		System.out.println(empID);
 		dsEmpID.put(name, empID);
+		System.out.println(dsEmpID);
+		System.out.println(new Employee(soID, position,name,field,position,salary,dep.getDeID()));
 		
 		
+		return new Employee();
 		
-	
-		return new Employee(soID, position,name,field,position,salary,"dsadsa");
 
 	
 		
 	}
 
 	
-	public static void main(String[] args) {
-		createEmployeeID();
-	}
-		
+
+	
 	
 }
